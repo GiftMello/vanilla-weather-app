@@ -60,7 +60,7 @@ function handleSearchSubmit(event) {
 
 function formatDay (timestamp){
   let date = new Date (timestamp * 1000);
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur","Sat", "Sun"]
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"]
   
   return days[date.getDay()];
 }
@@ -72,14 +72,10 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
- 
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
   response.data.daily.forEach(function (day, index) {
-    if (index <5) {
-
-    
+    if (index < 5) {
     forecastHtml =
       forecastHtml +
       `
@@ -107,4 +103,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Pretoria");
-displayForecast();
